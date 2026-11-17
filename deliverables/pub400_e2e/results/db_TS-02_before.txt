@@ -48,3 +48,15 @@ AWARDID  AWARDTITLE                                                             
 
   2 RECORD(S) SELECTED.
 
+*********************************************
+* WELCOME TO PUB400.COM - your public IBM i *
+* ----------------------------------------- *
+* Please take note of the following:        *
+* - all access is logged                    *
+* - please be polite and do not disturb     *
+*   other users!                            *
+* - this system is of limited support       *
+* - see https://pub400.com                  *
+********************************************* 
+ 
+-> Enter your password for Logon below:

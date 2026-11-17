@@ -1,5 +1,5 @@
 {
-  "environment": "実 PUB400 / tn5250 / vt100 / map=37",
+  "environment": "実 PUB400 / 同一 tn5250 PTY / vt100 / map=37 / 再実行日時 UTC: 2026-11-17T17:28:54.093230+00:00 ～ 2026-11-17T17:45:06.447131+00:00",
   "normalization": "! → | のコードページ差のみ照合時正規化。プロファイルは <USR> に伏字。",
   "cases": [
     {
@@ -90,8 +90,8 @@
         }
       ],
       "result": "PASS",
-      "db_expected": null,
-      "reset_evidence": "results/TS-01_reset.log"
+      "reset_evidence": "results/TS-01_reset.log",
+      "db_expected": null
     },
     {
       "id": "TS-02",
@@ -109,7 +109,7 @@
             "<USR>"
           ],
           "result": "PASS",
-          "note": "展示欄は次ステップの Tab 移動で保護状態も確認",
+          "note": "Tab が展示欄を飛ばすことを後続入力で確認",
           "evidence": [
             "results/screens/TS-02_step1.txt",
             "screenshots/TS-02_step1.png"
@@ -177,7 +177,7 @@
             "AS/400 DEMO MENU"
           ],
           "result": "PASS",
-          "note": "",
+          "note": "初回撮影は応答待ち中だったため、実メニュー復帰を待って撮影。追加キー入力なし。",
           "evidence": [
             "results/screens/TS-02_step5.txt",
             "screenshots/TS-02_step5.png"
@@ -186,6 +186,7 @@
         }
       ],
       "result": "PASS",
+      "reset_evidence": "results/TS-02_reset.log",
       "db_expected": "VOTINGDB 2 件のまま",
       "db": {
         "result": "PASS",
@@ -197,8 +198,7 @@
           "results/db_TS-02_before.txt",
           "results/db_TS-02_after.txt"
         ]
-      },
-      "reset_evidence": "results/TS-02_reset.log"
+      }
     },
     {
       "id": "TS-03",
@@ -240,6 +240,7 @@
         }
       ],
       "result": "PASS",
+      "reset_evidence": "results/TS-03_reset.log",
       "db_expected": "VOTINGDB に (7001,1,<USR>) 追加・計 3 件",
       "db": {
         "result": "PASS",
@@ -252,8 +253,7 @@
           "results/db_TS-03_before.txt",
           "results/db_TS-03_after.txt"
         ]
-      },
-      "reset_evidence": "results/TS-03_reset.log"
+      }
     },
     {
       "id": "TS-04",
@@ -378,6 +378,7 @@
         }
       ],
       "result": "PASS",
+      "reset_evidence": "results/TS-04_reset.log",
       "db_expected": "VOTINGDB 2 件のまま",
       "db": {
         "result": "PASS",
@@ -389,8 +390,7 @@
           "results/db_TS-04_before.txt",
           "results/db_TS-04_after.txt"
         ]
-      },
-      "reset_evidence": "results/TS-04_reset.log"
+      }
     },
     {
       "id": "TS-05",
@@ -432,6 +432,7 @@
         }
       ],
       "result": "PASS",
+      "reset_evidence": "results/TS-05_reset.log",
       "db_expected": "VOTINGDB 2 件のまま、再シードで ALWVOTE='Y'",
       "db": {
         "result": "PASS",
@@ -443,8 +444,7 @@
           "results/db_TS-05_before.txt",
           "results/db_TS-05_after.txt"
         ]
-      },
-      "reset_evidence": "results/TS-05_reset.log"
+      }
     },
     {
       "id": "TS-06",
@@ -462,7 +462,7 @@
             "<USR>"
           ],
           "result": "PASS",
-          "note": "",
+          "note": "Tab が展示欄を飛ばしてコメント欄へ移動し、展示値は保護される",
           "evidence": [
             "results/screens/TS-06_step1.txt",
             "screenshots/TS-06_step1.png"
@@ -514,7 +514,7 @@
             "Press ENTER to exit."
           ],
           "result": "PASS",
-          "note": "ENDCMT の実業務文言で識別。画面の Comment ID 値は空欄（観察事項）",
+          "note": "再実行でも Your Comment ID Is: の後ろは空欄。ENDCMT の実業務文言で識別。",
           "evidence": [
             "results/screens/TS-06_step4.txt",
             "screenshots/TS-06_step4.png"
@@ -540,6 +540,7 @@
         }
       ],
       "result": "PASS",
+      "reset_evidence": "results/TS-06_reset.log",
       "db_expected": "GUESTBKDB CMTID=3, VISIBLE='Y', EXHBID=<USR>, Devin Tester / E2E test run",
       "db": {
         "result": "PASS",
@@ -552,8 +553,7 @@
           "results/db_TS-06_before.txt",
           "results/db_TS-06_after.txt"
         ]
-      },
-      "reset_evidence": "results/TS-06_reset.log"
+      }
     },
     {
       "id": "TS-07",
@@ -567,7 +567,7 @@
           "actual": "   VINTAGE COMPUTER FESTIVAL    GUESTBOOK/400 - Read a Comment                  \n                                                                                \n   Enter a Comment ID:                          Currently hosting 0002          \n   <USR>                                     comments and counting.          \n   --------------------------------------------------------------------------   \n                 says to:                                                       \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n   --------------------------------------------------------------------------   \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n    Is this comment inappropriate? Please report the Comment ID to the          \n    folks at the Midrange Madness table and we will address the comment.        \n   --------------------------------------------------------------------------   \n    Cmd5 / F5 = Submit  Cmd12 / F12 = Cancel                                    ",
           "checked": [
             "GUESTBOOK/400",
-            "2"
+            "Currently hosting 0002"
           ],
           "result": "PASS",
           "note": "",
@@ -636,8 +636,8 @@
         }
       ],
       "result": "PASS",
-      "db_expected": null,
-      "reset_evidence": "results/TS-07_reset.log"
+      "reset_evidence": "results/TS-07_reset.log",
+      "db_expected": null
     },
     {
       "id": "TS-08",
@@ -673,7 +673,7 @@
             "This comment is not part of this guestbook."
           ],
           "result": "PASS",
-          "note": "名前・タイトル欄が空欄であることも原画面で確認",
+          "note": "名前・タイトル欄の空欄を原画面で確認",
           "evidence": [
             "results/screens/TS-08_step2.txt",
             "screenshots/TS-08_step2.png"
@@ -701,8 +701,8 @@
         }
       ],
       "result": "PASS",
-      "db_expected": null,
-      "reset_evidence": "results/TS-08_reset.log"
+      "reset_evidence": "results/TS-08_reset.log",
+      "db_expected": null
     },
     {
       "id": "TS-09",
@@ -797,8 +797,8 @@
         }
       ],
       "result": "PASS",
-      "db_expected": null,
-      "reset_evidence": "results/TS-09_reset.log"
+      "reset_evidence": "results/TS-09_reset.log",
+      "db_expected": null
     },
     {
       "id": "TS-10",
@@ -823,7 +823,7 @@
             "4. Read Exhibit Guestbook"
           ],
           "result": "PASS",
-          "note": "7 が画面に表示されないことを目視確認",
+          "note": "オプション7は非表示であることを目視確認",
           "evidence": [
             "results/screens/TS-10_step1.txt",
             "screenshots/TS-10_step1.png"
@@ -878,7 +878,7 @@
             "4. Read Exhibit Guestbook"
           ],
           "result": "PASS",
-          "note": "オプション1・2の非表示を原画面で確認",
+          "note": "オプション1・2の非表示、3・4のみの表示を目視確認",
           "evidence": [
             "results/screens/TS-10_step4.txt",
             "screenshots/TS-10_step4.png"
@@ -922,15 +922,15 @@
         }
       ],
       "result": "PASS",
-      "db_expected": null,
-      "reset_evidence": "results/TS-10_reset.log"
+      "reset_evidence": "results/TS-10_reset.log",
+      "db_expected": null
     }
   ],
   "observations": [
     {
       "severity": "Sev 3",
       "case": "TS-06",
-      "observed": "ENDCMT の Your Comment ID Is: の後ろが空欄。実 DB では CMTID=3 で正しく保存。",
+      "observed": "今回の再実行でも ENDCMT の Your Comment ID Is: の後ろが空欄となり再現。実 DB では CMTID=3 で正しく保存。",
       "impact": "登録は完了するが、完了画面から採番値を知れない軽微な UX 不備。",
       "evidence": [
         "screenshots/TS-06_step4.png",
@@ -944,8 +944,9 @@
     }
   ],
   "setup_observations": [
-    "最初の xterm + pyte 表示では行の残像が出たため、録画前にサインオフし TERM=vt100 で再接続。全24行表示を確認後に実施。",
-    "SSH は ~/p400 ControlMaster を再利用。提供 pub400_seed.sql を同じ db2 -f 方式で送信。dump は6表を1接続で取得し、データ行フィルターを使用しない。"
+    "前回の放置済み接続はホスト応答がなかったため録画前に閉じ、新たな TERM=vt100 の tn5250 で認証。メニュー全24行表示を確認後、今回の全10ケースをその同一セッションで再実行。",
+    "各ケース前と終了時は tools/pub400_db.sh reset を直接実行（計11回）。DB dump は ~/p400 ControlMaster を使い6表を1接続で取得し、データ行フィルターを使用しない。展示説明の pub400.com を含むデータ行も保存。",
+    "TS-02 step5 の初回撮影時はホスト応答前だったため、追加キーなしでメニュー復帰を待って撮影し直した。以降は期待テキストの到着を待って証跡を保存。"
   ],
   "cleanup": {
     "reset": "PASS",
@@ -956,19 +957,13 @@
       "screenshots/final_signoff.png"
     ]
   },
-  "manual_assertions": {
-    "TS-02_step1": "Tab が保護された展示欄を飛ばして Award へ移動。",
-    "TS-06_step1": "Tab が保護された展示欄を飛ばしてコメントへ移動。",
-    "TS-07_step1": "Currently hosting 0002 を確認。",
-    "TS-08_step2": "says to: の前後の名前・タイトルが空欄。",
-    "TS-10_step1": "隠しオプション7は表示なし。",
-    "TS-10_step4": "オプション1・2の行が空欄、3・4のみ表示。"
-  },
   "video": {
     "path": "video/PUB400_RPG_TS01-TS10.mp4",
     "coverage": "results/video_coverage.json",
-    "duration_seconds": 565.2,
-    "note": "全 raw セグメントを無欠落連結、4/3倍速、日本語注釈付き。認証後に開始。"
+    "duration_seconds": 555.134,
+    "recording_id": "rec-98fc30b8-2efb-4f3f-8929-5f9b8eb2f099",
+    "executed_at_utc": "2026-11-17T17:28:54.093230+00:00",
+    "note": "今回録画の全 raw セグメントを無欠落連結、1.800721倍速、日本語注釈付き。認証後に開始。"
   },
   "coverage": {
     "scenarios": 10,
@@ -981,5 +976,13 @@
       "TS-06"
     ],
     "out_of_scope": "CALL/JUMP 分岐・管理メニュー・印刷スプール等は今回の正本10シナリオに含まれず未検証。"
+  },
+  "manual_assertions": {
+    "TS-02_step1": "Tab が保護された展示欄を飛ばして Award へ移動。",
+    "TS-06_step1": "Tab が保護された展示欄を飛ばしてコメントへ移動。",
+    "TS-07_step1": "Currently hosting 0002 を確認。",
+    "TS-08_step2": "says to: の前後の名前・タイトルが空欄。",
+    "TS-10_step1": "隠しオプション7は表示なし。",
+    "TS-10_step4": "オプション1・2の行が空欄、3・4のみ表示。"
   }
 }
