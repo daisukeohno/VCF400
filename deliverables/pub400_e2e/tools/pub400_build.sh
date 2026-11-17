@@ -128,7 +128,10 @@ for d in "$STAGE"/*; do
   pf=$(basename "$d")
   for f in "$d"/*; do
     m=$(basename "$f")
-    ftpput_ascii "$f" "/QSYS.LIB/$SRCLIB.LIB/$pf.FILE/$m.MBR" && echo "  uploaded $pf/$m" | tee -a "$LOG"
+    if ! ftpput_ascii "$f" "/QSYS.LIB/$SRCLIB.LIB/$pf.FILE/$m.MBR"; then
+      echo "upload failed: $pf/$m" | tee -a "$LOG"; exit 1
+    fi
+    echo "  uploaded $pf/$m" | tee -a "$LOG"
   done
 done
 
