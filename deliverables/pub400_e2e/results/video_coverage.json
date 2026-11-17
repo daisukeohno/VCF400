@@ -2,7 +2,7 @@
   "video": "video/PUB400_RPG_TS01-TS10.mp4",
   "duration_seconds": 565.2,
   "speed": "4/3 倍速。録画開始からサインオフまで全 raw セグメントを連結し、操作のカットなし。",
-  "annotations": "video/annotations.json の source_time_ms × 0.75 が本動画の注釈位置。edited_time_s はツール自動短縮版の値で本動画には適用しない。",
+  "annotations": "video/annotations.json の source_time_ms × 0.75 + 2 秒が本動画で注釈テキストが表示される位置 (注釈表示は約 2 秒遅れて描画、cases[].time_seconds はその表示フレームの目視確認位置)。edited_time_s はツール自動短縮版の値で本動画には適用しない。",
   "cases": [
     {
       "case": "TS-01",
