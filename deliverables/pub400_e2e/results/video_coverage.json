@@ -1,0 +1,68 @@
+{
+  "video": "video/PUB400_RPG_TS01-TS10.mp4",
+  "duration_seconds": 565.2,
+  "speed": "4/3 倍速。録画開始からサインオフまで全 raw セグメントを連結し、操作のカットなし。",
+  "annotations": "video/annotations.json の source_time_ms × 0.75 が本動画の注釈位置。edited_time_s はツール自動短縮版の値で本動画には適用しない。",
+  "cases": [
+    {
+      "case": "TS-01",
+      "time_seconds": 11.13,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    },
+    {
+      "case": "TS-02",
+      "time_seconds": 59.04,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    },
+    {
+      "case": "TS-03",
+      "time_seconds": 107.79,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    },
+    {
+      "case": "TS-04",
+      "time_seconds": 155.52,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    },
+    {
+      "case": "TS-05",
+      "time_seconds": 222.57,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    },
+    {
+      "case": "TS-06",
+      "time_seconds": 261.15,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    },
+    {
+      "case": "TS-07",
+      "time_seconds": 330.67,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    },
+    {
+      "case": "TS-08",
+      "time_seconds": 374.39,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    },
+    {
+      "case": "TS-09",
+      "time_seconds": 431.56,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    },
+    {
+      "case": "TS-10",
+      "time_seconds": 484.01,
+      "observed": "ケース番号・実画面・日本語テスト名の動画フレームを目視確認",
+      "result": "PASS"
+    }
+  ]
+}
