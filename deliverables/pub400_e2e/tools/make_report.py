@@ -48,9 +48,9 @@ for c in R["cases"]:
         ev = ", ".join(s["evidence"]) if isinstance(s.get("evidence"), list) else str(s.get("evidence", ""))
         act = str(s.get("action", "")).replace("|", "\\|")
         a(f"| {s['no']} | {act} | {exp.replace('|', chr(92) + '|')} | **{s['result']}** | {ev} |")
-    db = c.get("db_expected")
-    if isinstance(db, dict) and db:
-        a(f"\n- 実 DB: {db.get('result', '')} — " + "; ".join(f"`{x}`" for x in db.get("actual", [])) + f"（{', '.join(db.get('evidence', []))}）")
+    db = c.get("db") or {}
+    if c.get("db_expected") or db:
+        a(f"\n- 実 DB 期待: {c.get('db_expected', '')} → **{db.get('result', '')}** — " + "; ".join(f"`{x}`" for x in db.get("actual", [])) + f"（{', '.join(db.get('evidence', []))}）")
     a("")
     first = ROOT / f"screenshots/{c['id']}_step1.png"
     if first.exists():

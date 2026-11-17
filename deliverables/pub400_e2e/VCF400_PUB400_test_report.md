@@ -62,6 +62,8 @@
 | 4 | バッジ空 / アワード 1 で F5 | `Must enter badge number` | **PASS** | results/screens/TS-02_step4.txt, screenshots/TS-02_step4.png |
 | 5 | F12 | `AS/400 DEMO MENU` | **PASS** | results/screens/TS-02_step5.txt, screenshots/TS-02_step5.png |
 
+- 実 DB 期待: VOTINGDB 2 件のまま → **PASS** — `1         1 <USR>`; `28         2 <USR>`（results/db_TS-02_before.txt, results/db_TS-02_after.txt）
+
 ![TS-02](screenshots/TS-02_step1.png)
 
 ### TS-03 投票: 正常登録 — PASS
@@ -70,6 +72,8 @@
 |---|---|---|---|---|
 | 1 | VCFMAIN 11 → Enter → バッジ 7001 / アワード 1 で F5 | `Your vote has been RECORDED!` | **PASS** | results/screens/TS-03_step1.txt, screenshots/TS-03_step1.png |
 | 2 | Enter | `AS/400 DEMO MENU` | **PASS** | results/screens/TS-03_step2.txt, screenshots/TS-03_step2.png |
+
+- 実 DB 期待: VOTINGDB に (7001,1,<USR>) 追加・計 3 件 → **PASS** — `1         1 <USR>`; `28         2 <USR>`; `7001         1 <USR>`（results/db_TS-03_before.txt, results/db_TS-03_after.txt）
 
 ![TS-03](screenshots/TS-03_step1.png)
 
@@ -85,6 +89,8 @@
 | 6 | バッジ 1 / 展示 NOSUCH / アワード 9 で F5 | `Award does not exist.` | **PASS** | results/screens/TS-04_step6.txt, screenshots/TS-04_step6.png |
 | 7 | F12 |  | **PASS** | results/screens/TS-04_step7.txt, screenshots/TS-04_step7.png |
 
+- 実 DB 期待: VOTINGDB 2 件のまま → **PASS** — `1         1 <USR>`; `28         2 <USR>`（results/db_TS-04_before.txt, results/db_TS-04_after.txt）
+
 ![TS-04](screenshots/TS-04_step1.png)
 
 ### TS-05 投票: 投票期間終了 (ALWVOTE='N') — PASS
@@ -93,6 +99,8 @@
 |---|---|---|---|---|
 | 1 | 事前 SQL: ALWVOTE='N' → VCFMAIN 11 → Enter | `The voting period has ended and you can no longer vote.` | **PASS** | results/screens/TS-05_step1.txt, screenshots/TS-05_step1.png |
 | 2 | Enter | `AS/400 DEMO MENU` | **PASS** | results/screens/TS-05_step2.txt, screenshots/TS-05_step2.png |
+
+- 実 DB 期待: VOTINGDB 2 件のまま、再シードで ALWVOTE='Y' → **PASS** — `1         1 <USR>`; `28         2 <USR>`（results/db_TS-05_before.txt, results/db_TS-05_after.txt）
 
 ![TS-05](screenshots/TS-05_step1.png)
 
@@ -105,6 +113,8 @@
 | 3 | 名前 Devin Tester / コメント空 で F5 | `Must enter a comment` | **PASS** | results/screens/TS-06_step3.txt, screenshots/TS-06_step3.png |
 | 4 | 名前 Devin Tester / コメント E2E test run で F5 | `完了画面 ENDCMT` | **PASS** | results/screens/TS-06_step4.txt, screenshots/TS-06_step4.png |
 | 5 | Enter | `AS/400 DEMO MENU` | **PASS** | results/screens/TS-06_step5.txt, screenshots/TS-06_step5.png |
+
+- 実 DB 期待: GUESTBKDB CMTID=3, VISIBLE='Y', EXHBID=<USR>, Devin Tester / E2E test run → **PASS** — `1 Y        <USR>  Great exhibit        VCF/400 running on PUB400.`; `2 Y        <USR>  Devin                VCF/400 is running on PUB400.`; `3 Y        <USR>  Devin Tester         E2E test run`（results/db_TS-06_before.txt, results/db_TS-06_after.txt）
 
 ![TS-06](screenshots/TS-06_step1.png)
 
